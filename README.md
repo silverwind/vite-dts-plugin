@@ -22,5 +22,5 @@ export default defineConfig({
 
 - `tsc`: Name of the `tsc` binary, default `tsc`.
 - `outDir`: Output directory. Default: `dist`.
-- `useCustomTsConfig`: Whether to use custom tsconfig with additional exlude patterns. Default: `false`.
+- `tsConfig`: Custom tsconfig as a string. Default: undefined.
 - `args`: Additional arguments passed to tsc. Default: `[]`.
