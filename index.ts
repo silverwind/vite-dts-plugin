@@ -3,22 +3,25 @@ import {execFile} from "node:child_process";
 import type {Plugin} from "vite";
 
 type ViteDtsPluginOpts = {
-  /** Name of the tsc binary */
+  /** Name of the tsc binary. Default: `tsc` */
   tsc?: string,
-  /** Additional arguments passed to tsc */
+  /** Output directory. Default: `dist` */
+  outDir?: string,
+  /** Additional arguments passed to tsc. Default: `[]` */
   args?: Array<string>,
 }
 
 /** Vite plugin to generate type definitions */
-export const dtsPlugin: (opts?: ViteDtsPluginOpts) => Plugin = ({tsc = "tsc", args = []}: ViteDtsPluginOpts = {}): Plugin => ({
+export const dtsPlugin: (opts?: ViteDtsPluginOpts) => Plugin = ({tsc = "tsc", outDir = "dist", args = []}: ViteDtsPluginOpts = {}): Plugin => ({
   name: "vite-tsc-plugin",
-  generateBundle: async () => {
+  writeBundle: async () => {
     try {
       await promisify(execFile)("npx", [
         tsc,
         "--declaration",
         "--noEmit", "false",
         "--emitDeclarationOnly", "true",
+        "--outDir", outDir,
         ...args,
       ]);
     } catch (err: any) {

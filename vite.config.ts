@@ -5,5 +5,5 @@ import {dtsPlugin} from "./index.ts";
 export default defineConfig(nodeLib({
   url: import.meta.url,
   dts: false,
-  plugins: [dtsPlugin()],
+  plugins: [dtsPlugin({args: ["--project", "tsconfig.types.json"]})],
 }));

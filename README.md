@@ -21,4 +21,5 @@ export default defineConfig({
 ## Options
 
 - `tsc`: Name of the `tsc` binary, default `tsc`.
+- `outDir`: Output directory. Default: `dist`.
 - `args`: Additional arguments passed to tsc.
