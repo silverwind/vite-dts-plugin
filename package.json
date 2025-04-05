@@ -1,6 +1,6 @@
 {
   "name": "vite-dts-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vite plugin to generate type definitions",
   "author": "silverwind <me@silverwind.io>",
   "repository": "silverwind/vite-dts-plugin",
