@@ -2,7 +2,7 @@ import {promisify} from "node:util";
 import {execFile} from "node:child_process";
 import type {Plugin} from "vite";
 
-type ViteDtsPluginOpts = {
+export type ViteDtsPluginOpts = {
   /** Name of the tsc binary. Default: `tsc` */
   tsc?: string,
   /** Output directory. Default: `dist` */
