@@ -1,0 +1,15 @@
+{
+  "extends": "typescript-config-silverwind",
+  "compilerOptions": {
+    "strict": true,
+    "types": [
+      "jest-extended",
+      "vitest/globals",
+    ],
+  },
+  "exclude": [
+    "${configDir}/**/*.config.*",
+    "${configDir}/**/*.test.*",
+    "${configDir}/**/dist/**",
+  ]
+}
