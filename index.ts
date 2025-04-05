@@ -17,20 +17,20 @@ export type ViteDtsPluginOpts = {
 
 /** Vite plugin to generate type definitions */
 export const dtsPlugin: (opts?: ViteDtsPluginOpts) => Plugin = ({tsc = "tsc", outDir = "dist", tsConfig, args = []}: ViteDtsPluginOpts = {}): Plugin => ({
-  name: "vite-tsc-plugin",
+  name: "vite-dts-plugin",
   writeBundle: async () => {
     try {
-      if (tsConfig) await writeFile("tsconfig.dtsplugin.json", tsConfig);
+      if (tsConfig) await writeFile("tsconfig.vite-dts-plugin.json", tsConfig);
       await promisify(execFile)("npx", [
         tsc,
         "--declaration",
         "--noEmit", "false",
         "--emitDeclarationOnly", "true",
         "--outDir", outDir,
-        ...(tsConfig ? ["--project", "tsconfig.dtsplugin.json"] : []),
+        ...(tsConfig ? ["--project", "tsconfig.vite-dts-plugin.json"] : []),
         ...args,
       ]);
-      if (tsConfig) await rm("tsconfig.dtsplugin.json");
+      if (tsConfig) await rm("tsconfig.vite-dts-plugin.json");
     } catch (err: any) {
       throw new Error(err.stdout ?? err.stderr ?? err.message);
     }
