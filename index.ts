@@ -22,7 +22,7 @@ export const dtsPlugin: (opts?: ViteDtsPluginOpts) => Plugin = ({tsc = "tsc", ar
         ...args,
       ]);
     } catch (err: any) {
-      throw new Error(err?.stdout ?? err.stderr ?? err.message);
+      throw new Error(err.stdout ?? err.stderr ?? err.message);
     }
   },
 });

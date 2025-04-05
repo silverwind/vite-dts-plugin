@@ -7,9 +7,4 @@
       "vitest/globals",
     ],
   },
-  "exclude": [
-    "${configDir}/**/*.config.*",
-    "${configDir}/**/*.test.*",
-    "${configDir}/**/dist/**",
-  ]
 }
