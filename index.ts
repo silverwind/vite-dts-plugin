@@ -25,7 +25,7 @@ export const dtsPlugin: (opts?: ViteDtsPluginOpts) => Plugin = ({tsc = "tsc", ou
       if (tsConfig) await writeFile(tsConfigFile, tsConfig);
       await promisify(execFile)("npx", [
         tsc,
-        "--declaration",
+        "--declaration", "true",
         "--noEmit", "false",
         "--emitDeclarationOnly", "true",
         "--outDir", outDir,
